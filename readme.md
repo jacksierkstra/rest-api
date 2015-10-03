@@ -19,7 +19,8 @@ What I needed, and Lumen didn't support this out of the box, is API versioning. 
 
 The way header versioning is implemented is supplying the following headers:
 
-```HTTP GET:
+```
+HTTP GET:
 https://yourapi.com/api/foo
 api-version: 2
 ```
