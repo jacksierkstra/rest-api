@@ -1,4 +1,6 @@
 ## Rest API
+![Build status](https://travis-ci.org/jacksierkstra/rest-api.svg?branch=master)
+
 This is a boilerplate project which will have some handy stuff in it for rest API's. This is really a personal project, but if I can make anyone happy with it, that would be nice.
 
 These are versions of software that I use in this project:
