@@ -1,21 +1,29 @@
-## Lumen PHP Framework
+## Rest API
+This is a boilerplate project which will have some handy stuff in it for rest API's. This is really a personal project, but if I can make anyone happy with it, that would be nice.
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+These are versions of software that I use in this project:
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+```json
+require": {
+    "php": ">=5.5.9",
+    "laravel/lumen-framework": "5.1.*",
+    "vlucas/phpdotenv": "~1.0"
+}
+```
+### Handy stuff
+What I needed, and Lumen didn't support this out of the box, is API versioning. Well, I don't really need it, but it was fun to develop this mechanism.
 
-## Official Documentation
+|Features|implemented|
+|---------|:------|
+|API versioning|Header|
 
-Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
+The way header versioning is implemented is supplying the following headers:
 
-## Security Vulnerabilities
+```HTTP GET:
+https://yourapi.com/api/foo
+api-version: 2
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+If you don't supply this header, the application will fallback to a given version. Right now, this is just version 1. If an invalid api version is supplied in the request header, it will also fallback to version 1. You can see how this works in the tests i've written.
 
-### License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+There are several options for implementing API versioning, but I decided to stick with the header version. I got inspiration from [this](http://www.troyhunt.com/2014/02/your-api-versioning-is-wrong-which-is.html) link where three wrong ways of implementing API versioning are supplied. I chose the one that was the least "wrong" from my point of view.
