@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -10,13 +9,9 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-
 $app->get('/', function () use ($app) {
-
     $arr = [
       'status' => 'ok'
     ];
-
     return $arr;
-
 });

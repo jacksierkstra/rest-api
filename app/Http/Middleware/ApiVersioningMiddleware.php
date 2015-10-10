@@ -29,7 +29,7 @@ class ApiVersioningMiddleware
         if($apiVersion == Version::Version2) {
             // Do something with your amazing api 2 version!
         }
-
+        var_dump($request);
         return $next($request);
     }
 

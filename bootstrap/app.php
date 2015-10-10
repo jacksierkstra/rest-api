@@ -2,7 +2,7 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-//Dotenv::load(__DIR__.'/../');
+//Dotenv::load('/var/www');
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +20,7 @@ $app = new Laravel\Lumen\Application(
 );
 
 $app->withFacades();
-// $app->withEloquent();
+
 
 /*
 |--------------------------------------------------------------------------
@@ -98,5 +98,7 @@ $app->middleware([
 $app->group(['namespace' => 'App\Http\Controllers'], function ($app) {
     require __DIR__.'/../app/Http/routes.php';
 });
+
+$app->useStoragePath('/var/www/storage');
 
 return $app;
